@@ -69,9 +69,9 @@
     
     alert('battery');
     
-    alert('batterylow', function () {
+    battery.addEventListener('batterylow', function () {
       mail.setTimer(mail.INTERVAL_BATTERY_LOW);
-      console.log('Low battery, checking the server less frequently.');
+      alert('Low battery, checking the server less frequently.');
     }, false);
     
     battery.addEventListener('batterycritical', function () {
