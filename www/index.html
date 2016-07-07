@@ -41,6 +41,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World from JBE</title>
       <script>
+      alert('Chargement script');
     var mail = {
       INTERVAL_BATTERY_LOW: 1000 * 60 * 10,
       INTERVAL_DEFAULT: 1000 * 10,
@@ -80,17 +81,18 @@
       mail.setTimer(mail.INTERVAL_DEFAULT);
       console.log('Battery ok, checking the server normally.');
     }, false);
+    alert('Chargement fin script');
   </script>
 </head>
 
 <body>
     <div class="app">
-         <form method="get" action="/page2">
+         <form method="get" action="/page2.html">
         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
-            <p>JBE V2</p>
+            <p>JBE V3</p>
            
         <button type="submit">Entrer dans l'application</button>
         </form>
