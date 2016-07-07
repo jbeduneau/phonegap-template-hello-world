@@ -41,51 +41,12 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World from JBE</title>
       <script>
-      alert('Chargement script');
-    var mail = {
-      INTERVAL_BATTERY_LOW: 1000 * 60 * 10,
-      INTERVAL_DEFAULT: 1000 * 10,
-      interval: null,
-      timer: 0,
-      
-      check: function () {
-        alert('Checking the server for new emails using an interval of ' + 
-                    (mail.interval / 1000) + ' seconds.');
-      },
-      
-      setTimer: function (interval) {
-        if (interval === mail.interval) { return; }
-        if (mail.timer !== 0) { clearTimeout(mail.timer); }
-        if (interval) { mail.timer = setInterval(function () { mail.check(); }, interval); }
-        mail.interval = interval;
-      }
-    };
-    
-    window.addEventListener('load', function () {
-      mail.setTimer(!mail.interval ? mail.INTERVAL_DEFAULT : mail.interval);
-    }, false);
-    
-    alert('before battery');
-    
-    var battery = new BatteryStatusEventSource();
-    
-    alert('battery');
-    
-    battery.addEventListener('batterylow', function () {
-      mail.setTimer(mail.INTERVAL_BATTERY_LOW);
-      alert('Low battery, checking the server less frequently.');
-    }, false);
-    
-    battery.addEventListener('batterycritical', function () {
-      mail.setTimer(null);
-      alert('Critically low battery, stopped checking the server.');
-    }, false);
-    
-    battery.addEventListener('batteryok', function () {
-      mail.setTimer(mail.INTERVAL_DEFAULT);
-      alert('Battery ok, checking the server normally.');
-    }, false);
-    alert('Chargement fin script');
+      window.addEventListener("batterystatus", onBatteryStatus, false);
+
+    function onBatteryStatus(info) {
+        // Handle the online event
+        console.log("Level: " + info.level + " isPlugged: " + info.isPlugged); 
+    }
   </script>
 </head>
 
