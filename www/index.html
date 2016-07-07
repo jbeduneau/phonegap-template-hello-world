@@ -65,6 +65,8 @@
       mail.setTimer(!mail.interval ? mail.INTERVAL_DEFAULT : mail.interval);
     }, false);
     
+    alert('before battery');
+    
     var battery = new BatteryStatusEventSource();
     
     alert('battery');
