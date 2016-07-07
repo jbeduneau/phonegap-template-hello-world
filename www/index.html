@@ -41,15 +41,23 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World from JBE</title>
       <script>
-      window.addEventListener("batterystatus", onBatteryStatus, false);
+      function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        }
+    
+        // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+        //
+        function onDeviceReady() {
+            window.addEventListener("batterystatus", onBatteryStatus, false);
+            alert("onDeviceReady done");
+        }
+    
+        // Handle the batterystatus event
+        //
+        function onBatteryStatus(info) {
+            alert("Level: " + info.level + " isPlugged: " + info.isPlugged); 
+        }
 
-    function onBatteryStatus(info) {
-        // Handle the online event
-        alert('Level: ' + info.level + ' isPlugged: ' + info.isPlugged); 
-    }
-    
-    alert('Fin chargement JS');
-    
   </script>
 </head>
 
