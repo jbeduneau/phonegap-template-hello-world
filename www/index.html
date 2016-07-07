@@ -40,6 +40,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World from JBE</title>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.3.0.js"></script>
       <script>
       function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -61,7 +62,7 @@
   </script>
 </head>
 
-<body>
+<body onload="onLoad()">
     <div class="app">
          <form method="post" action="./page2.html">
         <h1>PhoneGap</h1>
