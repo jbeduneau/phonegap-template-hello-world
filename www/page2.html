@@ -42,45 +42,17 @@
     <title>Hello World from JBE</title>
       <script>
       alert('Chargement script');
-    var mail = {
-      INTERVAL_BATTERY_LOW: 1000 * 60 * 10,
-      INTERVAL_DEFAULT: 1000 * 10,
-      interval: null,
-      timer: 0,
-      
-      check: function () {
-        console.log('Checking the server for new emails using an interval of ' + 
-                    (mail.interval / 1000) + ' seconds.');
-      },
-      
-      setTimer: function (interval) {
-        if (interval === mail.interval) { return; }
-        if (mail.timer !== 0) { clearTimeout(mail.timer); }
-        if (interval) { mail.timer = setInterval(function () { mail.check(); }, interval); }
-        mail.interval = interval;
+    cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
       }
-    };
-    
-    window.addEventListener('load', function () {
-      mail.setTimer(!mail.interval ? mail.INTERVAL_DEFAULT : mail.interval);
-    }, false);
-    
-    var battery = new BatteryStatusEventSource();
-    
-    battery.addEventListener('batterylow', function () {
-      mail.setTimer(mail.INTERVAL_BATTERY_LOW);
-      console.log('Low battery, checking the server less frequently.');
-    }, false);
-    
-    battery.addEventListener('batterycritical', function () {
-      mail.setTimer(null);
-      console.log('Critically low battery, stopped checking the server.');
-    }, false);
-    
-    battery.addEventListener('batteryok', function () {
-      mail.setTimer(mail.INTERVAL_DEFAULT);
-      console.log('Battery ok, checking the server normally.');
-    }, false);
+   );
     alert('Chargement fin script');
   </script>
 </head>
@@ -90,11 +62,7 @@
          <form method="get" action="/page2.html">
         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-            <p>JBE Page2</p>
-           
-        <button type="submit">Entrer dans l'application</button>
+            <button onclick="scan()">Scan Code</button>
         </form>
     </div>
     </div>
