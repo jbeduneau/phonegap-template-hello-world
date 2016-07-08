@@ -42,27 +42,31 @@
     <title>Hello World from JBE</title>
       <script>
       alert('Chargement script');
-    function scan()
-    {
-    cordova.plugins.barcodeScanner.scan(
-        alert('scan');
-      function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
-                alert("Done");
-      }, 
-      function (error) {
-          alert("Scanning failed: " + error);
-      }
-   );
+    function onLoad(){
+        alert('onLoad');
+        function scan()
+        {
+            alert('scan');
+        cordova.plugins.barcodeScanner.scan(
+            alert('scan');
+          function (result) {
+              alert("We got a barcode\n" +
+                    "Result: " + result.text + "\n" +
+                    "Format: " + result.format + "\n" +
+                    "Cancelled: " + result.cancelled);
+                    alert("Done");
+          }, 
+          function (error) {
+              alert("Scanning failed: " + error);
+          }
+       );
+        }
     }
     alert('Chargement fin script');
   </script>
 </head>
 
-<body>
+<body onload="onLoad()">>
     <div class="app">
          <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
