@@ -41,15 +41,13 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World from JBE</title>
       <script>
-      alert('Chargement script');
     function onLoad(){
         alert('onLoad');
-        
+ 
      }
     
     function scan()
 	{
-	alert('scan');
 	cordova.plugins.barcodeScanner.scan(
 	  function (result) {
 		  alert("We got a barcode\n" +
@@ -63,7 +61,6 @@
 	  }
    );
 }
-alert('Chargement fin script');
   </script>
 </head>
 
@@ -72,6 +69,22 @@ alert('Chargement fin script');
          <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
         <button onclick="javascript:scan()">Scan Code</button>
+		<hr>
+		<input type="number" id="objectif global"></input>
+		<input type="number" id="objectif soin"></input>
+		<input type="number" id="objectif maquillage"></input>
+		<hr>
+		<input type="number" id="réalisé global"></input>
+		<input type="number" id="réalisé soin"></input>
+		<input type="number" id="réalisé maquillage"></input>
+		<hr>
+		<p>
+       Cochez les aliments que vous aimez manger :<br />
+       <input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label><br />
+       <input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label><br />
+       <input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
+       <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
+   </p>
     </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
