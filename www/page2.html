@@ -43,6 +43,7 @@
       <script>
       alert('Chargement script');
     cordova.plugins.barcodeScanner.scan(
+        alert('scan');
       function (result) {
           alert("We got a barcode\n" +
                 "Result: " + result.text + "\n" +
@@ -59,11 +60,9 @@
 
 <body>
     <div class="app">
-         <form method="get" action="/page2.html">
-        <h1>PhoneGap</h1>
+         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
-            <button onclick="scan()">Scan Code</button>
-        </form>
+        <button onclick="scan();">Scan Code</button>
     </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
