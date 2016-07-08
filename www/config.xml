@@ -50,7 +50,7 @@
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist"           source="npm" spec="~1.2.1" />
     
-    <plugin name="phonegap-plugin-barcodescanner" />
+    <plugin name="com.phonegap.plugins.barcodescanner" spec="2.0.0" source="pgb" />
 
     <!-- Define app icon and splashscreen for each platform. -->
     <icon src="icon.png" />
